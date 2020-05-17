@@ -10,6 +10,7 @@ import UIKit
 
 class ImageCatCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var activityIndecator: UIActivityIndicatorView!
     @IBOutlet weak var imageView: UIImageView!
     
     override func awakeFromNib() {

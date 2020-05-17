@@ -12,7 +12,10 @@ class BreedsTableViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var tableView: UITableView!
     var breeds = [Breed]()
     var valueToPass = Breed()
-    private let apiManager = APIManager()
+    private let heightRow = 44
+    
+    private let jsonParser = JSONParser()
+    let apiConfig = APIConfig()
     
     
     override func viewDidLoad() {
@@ -25,20 +28,26 @@ class BreedsTableViewController: UIViewController, UITableViewDataSource, UITabl
     }
 
     func getBreeds() {
-        apiManager.getBreeds() { [weak self] (breeds, error) in
-            if let error = error {
-                print("Get breeds error: \(error.localizedDescription)")
-                return
-            }
-            
-            
-            guard let breeds = breeds  else { return }
-            DispatchQueue.main.sync {
-                self?.breeds = breeds
-                self?.tableView.reloadData()
-            }
-   
-        }
+        let jsonURL = apiConfig.fetchURL(with: .breeds, parameters: [apiConfig.x_api_key: apiConfig.apiKey])
+      
+        jsonParser.downloadData(of: Breed.self, from: jsonURL!) { (result) in
+               switch result {
+               case .failure(let error):
+                   if error is DataError {
+                       print("DataError = \(error)")
+                   } else {
+                       print(error.localizedDescription)
+                   }
+               case .success(let breeds):
+                DispatchQueue.main.sync {
+                      self.breeds = breeds
+                      self.tableView.reloadData()
+                     
+                }
+                   
+               }
+               
+           }
     }
     
   
@@ -63,16 +72,11 @@ class BreedsTableViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 44.0
+        return CGFloat(heightRow)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         valueToPass = breeds[indexPath.row]
-   //     let destinationVC = DetailBreedViewController()
-   //     destinationVC.dataBreed = valueToPass
-   //     destinationVC.delegate = self
-    //    navigationController?.pushViewController(destinationVC, animated: true)
-        
         self.performSegue(withIdentifier: "DetailBreed", sender: self)
     }
     

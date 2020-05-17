@@ -19,16 +19,26 @@
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="catPlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="0Wm-Nj-Poo">
                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                     </imageView>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="C1S-uc-dsK">
+                        <rect key="frame" x="15" y="15" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="3aO-R7-M6E"/>
+                            <constraint firstAttribute="height" constant="50" id="k0F-3H-Yg6"/>
+                        </constraints>
+                    </activityIndicatorView>
                 </subviews>
             </view>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="0Wm-Nj-Poo" secondAttribute="bottom" id="3V3-DI-004"/>
                 <constraint firstItem="0Wm-Nj-Poo" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="4uk-ms-SgV"/>
+                <constraint firstItem="C1S-uc-dsK" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="GKy-T2-BOc"/>
                 <constraint firstAttribute="trailing" secondItem="0Wm-Nj-Poo" secondAttribute="trailing" id="dKJ-6u-wjR"/>
+                <constraint firstItem="C1S-uc-dsK" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="xcv-az-EaD"/>
                 <constraint firstItem="0Wm-Nj-Poo" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="xdr-HC-fhw"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
+                <outlet property="activityIndecator" destination="C1S-uc-dsK" id="Uav-jX-YMk"/>
                 <outlet property="imageView" destination="0Wm-Nj-Poo" id="ID9-Jg-5UL"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="153.34821428571428"/>
