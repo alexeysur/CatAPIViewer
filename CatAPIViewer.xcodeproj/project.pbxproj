@@ -43,7 +43,7 @@
 		8A12C0CE246EB98600316518 /* ImageCAT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCAT.swift; sourceTree = "<group>"; };
 		8A12C0D0246EBA2E00316518 /* AppConfing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfing.swift; sourceTree = "<group>"; };
 		8A12C0D4246EC35800316518 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		8A12C0D7246ED95C00316518 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JSONParser.swift; path = ../Service/JSONParser.swift; sourceTree = "<group>"; };
+		8A12C0D7246ED95C00316518 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		8A12D6D824730A9D0006543E /* Service+Breeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Service+Breeds.swift"; sourceTree = "<group>"; };
 		8A1414A62461FC8F00DC2509 /* CustomLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoader.swift; sourceTree = "<group>"; };
 		8A151A442465D7B4000FBA74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
