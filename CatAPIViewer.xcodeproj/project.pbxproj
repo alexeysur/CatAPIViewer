@@ -13,11 +13,10 @@
 		8A12C0CD246EB94700316518 /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A12C0CC246EB94700316518 /* Breed.swift */; };
 		8A12C0CF246EB98600316518 /* ImageCAT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A12C0CE246EB98600316518 /* ImageCAT.swift */; };
 		8A12C0D1246EBA2E00316518 /* AppConfing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A12C0D0246EBA2E00316518 /* AppConfing.swift */; };
-		8A12C0D3246EC15500316518 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A12C0D2246EC15500316518 /* Resource.swift */; };
 		8A12C0D5246EC35800316518 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A12C0D4246EC35800316518 /* Color.swift */; };
 		8A12C0D8246ED95C00316518 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A12C0D7246ED95C00316518 /* JSONParser.swift */; };
+		8A12D6D924730A9D0006543E /* Service+Breeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A12D6D824730A9D0006543E /* Service+Breeds.swift */; };
 		8A1414A72461FC8F00DC2509 /* CustomLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1414A62461FC8F00DC2509 /* CustomLoader.swift */; };
-		8A14DE7424649B1D00A0D3B2 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A14DE7324649B1D00A0D3B2 /* ApiManager.swift */; };
 		8A151A452465D7B4000FBA74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A151A442465D7B4000FBA74 /* Assets.xcassets */; };
 		8A1BCBFD245F67C300AB1E0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1BCBFC245F67C300AB1E0B /* AppDelegate.swift */; };
 		8A1BCBFF245F67C300AB1E0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1BCBFE245F67C300AB1E0B /* SceneDelegate.swift */; };
@@ -43,11 +42,10 @@
 		8A12C0CC246EB94700316518 /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
 		8A12C0CE246EB98600316518 /* ImageCAT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCAT.swift; sourceTree = "<group>"; };
 		8A12C0D0246EBA2E00316518 /* AppConfing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfing.swift; sourceTree = "<group>"; };
-		8A12C0D2246EC15500316518 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		8A12C0D4246EC35800316518 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		8A12C0D7246ED95C00316518 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
+		8A12C0D7246ED95C00316518 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JSONParser.swift; path = ../Service/JSONParser.swift; sourceTree = "<group>"; };
+		8A12D6D824730A9D0006543E /* Service+Breeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Service+Breeds.swift"; sourceTree = "<group>"; };
 		8A1414A62461FC8F00DC2509 /* CustomLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoader.swift; sourceTree = "<group>"; };
-		8A14DE7324649B1D00A0D3B2 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		8A151A442465D7B4000FBA74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A1BCBF9245F67C300AB1E0B /* CatAPIViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatAPIViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A1BCBFC245F67C300AB1E0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -167,8 +165,7 @@
 		8A16F4AA2463108A00AD2521 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				8A14DE7324649B1D00A0D3B2 /* ApiManager.swift */,
-				8A12C0D2246EC15500316518 /* Resource.swift */,
+				8A12C0D7246ED95C00316518 /* JSONParser.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -208,7 +205,7 @@
 		8A1BCC10245F685100AB1E0B /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				8A12C0D7246ED95C00316518 /* JSONParser.swift */,
+				8A12D6D824730A9D0006543E /* Service+Breeds.swift */,
 			);
 			name = Service;
 			path = "/Users/alexey/Desktop/Swift Projects/CatAPIViewer_v2/CatAPIViewer/Service";
@@ -317,13 +314,12 @@
 				8A12C0D8246ED95C00316518 /* JSONParser.swift in Sources */,
 				8A7E5C932468937E00CAF9E0 /* LargeImageViewController.swift in Sources */,
 				8A1129F52471DC0F00637D9D /* Answer.swift in Sources */,
+				8A12D6D924730A9D0006543E /* Service+Breeds.swift in Sources */,
 				8A1BCC16245F690000AB1E0B /* ImageViewController.swift in Sources */,
 				8A12C0CD246EB94700316518 /* Breed.swift in Sources */,
-				8A12C0D3246EC15500316518 /* Resource.swift in Sources */,
 				8A317F1124631BF6009E2B23 /* QUIZViewController.swift in Sources */,
 				8A12C0D5246EC35800316518 /* Color.swift in Sources */,
 				8A317F1324631C49009E2B23 /* GalleryCollectionViewController.swift in Sources */,
-				8A14DE7424649B1D00A0D3B2 /* ApiManager.swift in Sources */,
 				8A1129ED2471590800637D9D /* UIColor_Extensions.swift in Sources */,
 				8A317F0F24631BC1009E2B23 /* DetailBreedViewController.swift in Sources */,
 				8A7E5C902468515E00CAF9E0 /* ImageCatCollectionViewCell.swift in Sources */,

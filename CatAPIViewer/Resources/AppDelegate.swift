@@ -20,11 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //MARK: - Activity Indicator -
     func showLoader()
     {
-        CustomLoader.sharedInstance.startAnimation()
+//        CustomLoader.sharedInstance.startAnimation()
     }
     func hideLoader()
     {
-        CustomLoader.sharedInstance.stopAnimation()
+//        CustomLoader.sharedInstance.stopAnimation()
     }
     
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

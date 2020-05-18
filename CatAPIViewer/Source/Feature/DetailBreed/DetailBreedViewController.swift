@@ -10,8 +10,9 @@ import UIKit
 
 class DetailBreedViewController: UIViewController {
     var dataBreed = Breed()
-    var breedDetail: BreedDetail?
-    let apiConfig = APIConfig()
+    
+    private var breedDetail: BreedDetail?
+    private let apiConfig = APIConfig()
 
     private let jsonParser = JSONParser()
 
@@ -34,22 +35,23 @@ class DetailBreedViewController: UIViewController {
         lblLifeSpan.text = dataBreed.life_span
         descriptionTextView.text = dataBreed.description
       
+        setup()
+        
         getImagefromURL(from: dataBreed.id)
     }
     
-    func decode(_ data: Data) {
-        let decoder = JSONDecoder()
-        if let breedDetail = try? decoder.decode(BreedDetail.self, from: data) {
-            setup(breedDetail)
-        }
-    }
-    
-    func setup(_ breedDetail: BreedDetail) {
-        //
+    func setup() {
+  
+        activityIndecator.centerXAnchor.constraint(equalTo: imageBreed.centerXAnchor).isActive = true
+        activityIndecator.centerYAnchor.constraint(equalTo: imageBreed.centerYAnchor).isActive = true
+        
+        activityIndecator.isHidden = false
+        activityIndecator.startAnimating()
+
     }
     
    func getImagefromURL(from breedID: String?) {
-    let jsonURL = apiConfig.fetchURL(with: .images, parameters: [apiConfig.breed_ids: dataBreed.id])
+    let jsonURL = apiConfig.fetchURL(with: .images, parameters: [apiConfig.breed_ids: breedID!])
     
     jsonParser.downloadData(of: BreedDetail.self, from: jsonURL!) { (result) in
                 switch result {
@@ -78,6 +80,9 @@ class DetailBreedViewController: UIViewController {
             if let data = imageData {
                 DispatchQueue.main.async {
                     self.imageBreed.image = data
+                    
+                    self.activityIndecator.stopAnimating()
+                    self.activityIndecator.isHidden = true
                 }
             } else {
                 print("Error loading image!")

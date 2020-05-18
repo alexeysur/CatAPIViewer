@@ -11,15 +11,13 @@ import Foundation
 enum paragraph: String {
     case breeds = "breeds"
     case images = "images/search"
-    
-   
+  
 }
 
 final class APIConfig {
     let apiKey = "1333c8f6-fa50-4689-94ff-42b566bc2aed"
     let limit = "100"
     let page = 1
-    let x_api_key = "x-api-key"
     let breed_ids = "breed_ids"
     let host = "api.thecatapi.com"
     

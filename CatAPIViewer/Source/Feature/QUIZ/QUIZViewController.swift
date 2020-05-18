@@ -22,33 +22,35 @@ class QUIZViewController: UIViewController {
     @IBOutlet weak var anwButton3: UIButton!
     @IBOutlet weak var anwButton4: UIButton!
     
-    @IBOutlet weak var toolButtonQuit: UIBarButtonItem!
+    @IBOutlet weak var toolButtonReset: UIBarButtonItem!
     @IBOutlet weak var toolButtonNext: UIBarButtonItem!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var activityIndecator: UIActivityIndicatorView!
     
-    var currentBreed = (breedID: 0 , breedShotName: "", breedName: "")
-    var scoreCount = 0
-    var questionCount = 0
-    var countPossibleVariant = 4
-    var quizEnded = false
+    private var currentBreed = (breedID: 0 , breedShotName: "", breedName: "")
+    private var scoreCount = 0
+    private var questionCount = 0
+    private var countPossibleVariant = 4
+    private var quizEnded = false
     
-    var breeds = [Breed]()
- //   private let apiManager = APIManager()
-    let jsonParse = JSONParser()
+    private var breeds = [Breed]()
+    private let jsonParser = JSONParser()
+    private let apiConfig = APIConfig()
+    private let breedService = BreedService()
     
-    var indexRight: Int = 0
-    var urlImageBreed = String()
+    private var indexRight: Int = 0
+    private var urlImageBreed = String()
     
-    var currentAnswers = [Answer]()
-    var arrayBreed: [String] = []
-    var breedID: String = ""
+    private var currentAnswers = [Answer]()
+    private var arrayBreed: [String] = []
+    private var breedID: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        breeds = BreedService.breeds
         resetQuiz()
     }
-    
+
+    // setup init paramenters of QUIZ
     func setup() {
         
         for breed in breeds {
@@ -61,30 +63,65 @@ class QUIZViewController: UIViewController {
             newElement.isRight = false
             currentAnswers.insert(newElement, at: i)
         }
-        
-        anwButton1.layer.borderColor = UIColor(red: 227.0/255.0, green: 99.0/255.0, blue: 54.0/255.0, alpha: 1).cgColor
-        anwButton1.layer.borderWidth = 1
-        anwButton1.layer.cornerRadius = 5
-
-        anwButton2.layer.borderColor = UIColor(red: 227.0/255.0, green: 99.0/255.0, blue: 54.0/255.0, alpha: 1).cgColor
-        anwButton2.layer.borderWidth = 1
-        anwButton2.layer.cornerRadius = 5
-
-        anwButton3.layer.borderColor = UIColor(red: 227.0/255.0, green: 99.0/255.0, blue: 54.0/255.0, alpha: 1).cgColor
-        anwButton3.layer.borderWidth = 1
-        anwButton3.layer.cornerRadius = 5
-
-        anwButton4.layer.borderColor = UIColor(red: 227.0/255.0, green: 99.0/255.0, blue: 54.0/255.0, alpha: 1).cgColor
-        anwButton4.layer.borderWidth = 1
-        anwButton4.layer.cornerRadius = 5
-
-
-        anwButton1.isEnabled = false
-        anwButton2.isEnabled = false
-        anwButton3.isEnabled = false
-        anwButton4.isEnabled = false
+  
+        setupViewProperties()
+   
+        scoreCount = 0
+        questionCount = 1
+            
+        randomBreed()
+        getImagefromURL(from: currentBreed.breedShotName)
+        showPossibleAnswer(isRightBreed: (self.currentBreed.breedName))
+                                               
+        anwButton1.isEnabled = true
+        anwButton2.isEnabled = true
+        anwButton3.isEnabled = true
+        anwButton4.isEnabled = true
+                                        
+        toolButtonReset.isEnabled = true
+        toolButtonNext.isEnabled = true
     }
     
+    // setup View's properties
+    func setupViewProperties() {
+          imgCat.image = UIImage(named: "catPlaceholder")
+          lblScoreCount.text = "0"
+          lblQuestionCount.text = "1"
+        
+          anwButton1.layer.borderColor = Color.borderColorButton.cgColor
+          anwButton1.layer.borderWidth = 1
+          anwButton1.layer.cornerRadius = 5
+          anwButton1.layer.backgroundColor = UIColor.white.cgColor
+          
+          anwButton2.layer.borderColor = Color.borderColorButton.cgColor
+          anwButton2.layer.borderWidth = 1
+          anwButton2.layer.cornerRadius = 5
+          anwButton2.layer.backgroundColor = UIColor.white.cgColor
+          
+          anwButton3.layer.borderColor = Color.borderColorButton.cgColor
+          anwButton3.layer.borderWidth = 1
+          anwButton3.layer.cornerRadius = 5
+          anwButton3.layer.backgroundColor = UIColor.white.cgColor
+          
+          anwButton4.layer.borderColor = Color.borderColorButton.cgColor
+          anwButton4.layer.borderWidth = 1
+          anwButton4.layer.cornerRadius = 5
+          anwButton4.layer.backgroundColor = UIColor.white.cgColor
+        
+          anwButton1.isEnabled = false
+          anwButton2.isEnabled = false
+          anwButton3.isEnabled = false
+          anwButton4.isEnabled = false
+
+          activityIndecator.centerXAnchor.constraint(equalTo: imgCat.centerXAnchor).isActive = true
+          activityIndecator.centerYAnchor.constraint(equalTo: imgCat.centerYAnchor).isActive = true
+          activityIndecator.isHidden = false
+          activityIndecator.startAnimating()
+        
+    }
+    
+    
+    // get random breed of cat
     func randomBreed()  {
         let id = Int.random(in: 0..<breeds.count-1)
         
@@ -105,6 +142,7 @@ class QUIZViewController: UIViewController {
         return arrID
     }
     
+    // choose four possible variants of answer
     func showPossibleAnswer(isRightBreed: String) {
         var currAnswers: [String] = ["","","",""]
         var currAnswer = Answer()
@@ -166,44 +204,30 @@ class QUIZViewController: UIViewController {
     
     func selectAnswer(_ answerId : Int) -> Void {
      
- anwButton1.layer.backgroundColor = UIColor.red.cgColor
- anwButton2.layer.backgroundColor = UIColor.red.cgColor
- anwButton3.layer.backgroundColor = UIColor.red.cgColor
- anwButton4.layer.backgroundColor = UIColor.red.cgColor
-        
-        
+        anwButton1.layer.backgroundColor = Color.lightRed.cgColor
+        anwButton2.layer.backgroundColor = Color.lightRed.cgColor
+        anwButton3.layer.backgroundColor = Color.lightRed.cgColor
+        anwButton4.layer.backgroundColor = Color.lightRed.cgColor
+
         if currentAnswers[answerId].isRight == true {
-            scoreCount += 3
-            lblScoreCount.text = String(scoreCount)
-              switch answerId {
-                             case 0: anwButton1.layer.backgroundColor = UIColor(red: 56/255, green: 227/255, blue: 23/255, alpha: 1).cgColor
-                             case 1: anwButton2.layer.backgroundColor = UIColor(red: 56/255, green: 227/255, blue: 23/255, alpha: 1).cgColor
-                             case 2: anwButton3.layer.backgroundColor = UIColor(red: 56/255, green: 227/255, blue: 23/255, alpha: 1).cgColor
-                             case 3: anwButton4.layer.backgroundColor = UIColor(red: 56/255, green: 227/255, blue: 23/255, alpha: 1).cgColor
-
-                       default:
-                           return
-                        }
-            
-            
+              scoreCount += 3
+              lblScoreCount.text = String(scoreCount)
         } else {
-            switch indexRight {
-                           case 0: anwButton1.layer.backgroundColor = UIColor(red: 56/255, green: 227/255, blue: 23/255, alpha: 1).cgColor
-                           case 1: anwButton2.layer.backgroundColor = UIColor(red: 56/255, green: 227/255, blue: 23/255, alpha: 1).cgColor
-                           case 2: anwButton3.layer.backgroundColor = UIColor(red: 56/255, green: 227/255, blue: 23/255, alpha: 1).cgColor
-                           case 3: anwButton4.layer.backgroundColor = UIColor(red: 56/255, green: 227/255, blue: 23/255, alpha: 1).cgColor
-
-                    default:
-                           return
-                    }
             if scoreCount >= 3 {
                 scoreCount -= 3
                 lblScoreCount.text = String(scoreCount)
-                
             }
         }
-        
-        
+            
+        switch indexRight {
+         case 0: anwButton1.layer.backgroundColor = Color.salad.cgColor
+         case 1: anwButton2.layer.backgroundColor = Color.salad.cgColor
+         case 2: anwButton3.layer.backgroundColor = Color.salad.cgColor
+         case 3: anwButton4.layer.backgroundColor = Color.salad.cgColor
+         default:
+             return
+        }
+                   
         anwButton1.isEnabled = false
         anwButton2.isEnabled = false
         anwButton3.isEnabled = false
@@ -224,8 +248,8 @@ class QUIZViewController: UIViewController {
         imgCat.image = UIImage(named: "catPlaceholder")
         
         
-        activityIndicator.isHidden = false
-        activityIndicator.startAnimating()
+        activityIndecator.isHidden = false
+        activityIndecator.startAnimating()
         
         randomBreed()
         getImagefromURL(from: currentBreed.breedShotName)
@@ -236,118 +260,69 @@ class QUIZViewController: UIViewController {
         anwButton3.isEnabled = true
         anwButton4.isEnabled = true
 
-        
+        toolButtonNext.isEnabled = true
     }
     
     func resetQuiz() {
-        toolButtonQuit.isEnabled = false
+        toolButtonReset.isEnabled = false
         toolButtonNext.isEnabled = false
-        
-               scoreCount = 0
-               lblScoreCount.text = "0"
-               lblQuestionCount.text = "1"
-               questionCount = 1
-            
-               anwButton1.layer.backgroundColor = UIColor.white.cgColor
-               anwButton2.layer.backgroundColor = UIColor.white.cgColor
-               anwButton3.layer.backgroundColor = UIColor.white.cgColor
-               anwButton4.layer.backgroundColor = UIColor.white.cgColor
-               imgCat.image = UIImage(named: "catPlaceholder")
-        
-               activityIndicator.centerXAnchor.constraint(equalTo: imgCat.centerXAnchor).isActive = true
-               activityIndicator.centerYAnchor.constraint(equalTo: imgCat.centerYAnchor).isActive = true
-               activityIndicator.isHidden = false
-               activityIndicator.startAnimating()
-                   
-               getBreeds()
-        
+   
+        setup()
+        randomBreed()
+        getImagefromURL(from: currentBreed.breedShotName)
+        showPossibleAnswer(isRightBreed: (currentBreed.breedName))
+                                               
+         anwButton1.isEnabled = true
+         anwButton2.isEnabled = true
+         anwButton3.isEnabled = true
+         anwButton4.isEnabled = true
+                                           
+         toolButtonReset.isEnabled = true
+         toolButtonNext.isEnabled = true
     }
     
-    @IBAction func pressToolQuit(_ sender: UIBarButtonItem) {
-        
+    @IBAction func pressToolReset(_ sender: UIBarButtonItem) {
         resetQuiz()
    }
     
-  func getBreeds() {
-         apiManager.getBreeds() { [weak self] (breeds, error) in
-             if let error = error {
-                 print("Get breeds error: \(error.localizedDescription)")
-                 return
-             }
-             
-             
-             guard let breeds = breeds  else { return }
-             DispatchQueue.main.sync {
-                self?.breeds = breeds
-                self?.setup()
-                self?.randomBreed()
-               
-                self?.getImagefromURL(from: self?.currentBreed.breedShotName)
-                self?.showPossibleAnswer(isRightBreed: (self?.currentBreed.breedName)!)
-                  
-                self?.anwButton1.isEnabled = true
-                self?.anwButton2.isEnabled = true
-                self?.anwButton3.isEnabled = true
-                self?.anwButton4.isEnabled = true
-                
-                self?.toolButtonQuit.isEnabled = true
-                self?.toolButtonNext.isEnabled = true
-                
-                
-            }
-    
-         }
-     }
-    
     func getImagefromURL(from breedID: String?) {
-              apiManager.getImageBreedForDescription(breedID: breedID!, completion: { [weak self] (imageURL, error) in
-                  if let error = error {
-                      print("Get url for image of breed error: \(error)")
-                      return
+        let jsonURL = apiConfig.fetchURL(with: .images, parameters: [apiConfig.breed_ids: breedID!])
+      
+      jsonParser.downloadData(of: BreedDetail.self, from: jsonURL!) { (result) in
+                  switch result {
+                  case .failure(let error):
+                      if error is DataError {
+                          print("DataError = \(error)")
+                      } else {
+                          print(error.localizedDescription)
+                      }
+                  case .success(let breedDetail):
+                   DispatchQueue.main.sync {
+                         
+                    self.setImageToImageView(from: (breedDetail[0].url)!)
+                    
+                    self.toolButtonReset.isEnabled = true
+                    self.toolButtonNext.isEnabled = true
+                   }
+                      
                   }
-                  guard let breedID = breedID else {return}
-                  DispatchQueue.main.sync {
-                    self?.urlImageBreed = imageURL!
-                    self?.setImageToImageView()
-                    self?.activityIndicator.stopAnimating()
-                    self?.activityIndicator.isHidden = true
-                    self?.toolButtonNext.isEnabled = true
-      
-                }
-              })
-      }
-    
-    func fetchImage(from urlString: String, completion: @escaping (_ data: Data?) -> ()) {
-          let session = URLSession.shared
-         
-          guard let url = URL(string: urlString) else {
-              print("Error: Cannot create URL from string")
-              return
-          }
-          let urlRequest = URLRequest(url: url)
-          let dataTask = session.dataTask(with: urlRequest) { (data, response, error) in
-              if error != nil {
-                  print("Error fetching the image!")
-                  completion(nil)
-              } else {
-                  completion(data)
-              }
-              
-          }
-          dataTask.resume()
-      }
-      
-      func setImageToImageView() {
-          fetchImage(from: urlImageBreed) { (imageData) in
-              if let data = imageData {
                   
+              }
+     }
+
+      func setImageToImageView(from urlImage: String) {
+          jsonParser.fetchImage(from: urlImage) { (imageData, error) in
+              if let data = imageData {
                   DispatchQueue.main.async {
-                    self.imgCat.image = UIImage(data: data)
-                   
+                      self.imgCat.image = data
+   
+                      self.activityIndecator.stopAnimating()
+                      self.activityIndecator.isHidden = true
                   }
               } else {
                   print("Error loading image!")
               }
           }
       }
+    
 }

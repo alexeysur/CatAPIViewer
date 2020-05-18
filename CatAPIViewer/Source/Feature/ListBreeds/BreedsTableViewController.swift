@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class BreedsTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     @IBOutlet weak var tableView: UITableView!
     var breeds = [Breed]()
@@ -28,7 +29,7 @@ class BreedsTableViewController: UIViewController, UITableViewDataSource, UITabl
     }
 
     func getBreeds() {
-        let jsonURL = apiConfig.fetchURL(with: .breeds, parameters: [apiConfig.x_api_key: apiConfig.apiKey])
+        let jsonURL = apiConfig.fetchURL(with: .breeds, parameters: ["x_api_key" : apiConfig.apiKey])
       
         jsonParser.downloadData(of: Breed.self, from: jsonURL!) { (result) in
                switch result {
@@ -40,8 +41,8 @@ class BreedsTableViewController: UIViewController, UITableViewDataSource, UITabl
                    }
                case .success(let breeds):
                 DispatchQueue.main.sync {
-                      self.breeds = breeds
-                      self.tableView.reloadData()
+                    BreedService.breeds = breeds
+                    self.tableView.reloadData()
                      
                 }
                    
@@ -58,7 +59,7 @@ class BreedsTableViewController: UIViewController, UITableViewDataSource, UITabl
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return breeds.count
+        return BreedService.breeds.count
  
     }
 
@@ -66,7 +67,7 @@ class BreedsTableViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellBreed", for: indexPath)
         
-        cell.textLabel?.text = breeds[indexPath.row].name
+        cell.textLabel?.text = BreedService.breeds[indexPath.row].name
 
         return cell
     }
@@ -76,7 +77,7 @@ class BreedsTableViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        valueToPass = breeds[indexPath.row]
+        valueToPass = BreedService.breeds[indexPath.row]
         self.performSegue(withIdentifier: "DetailBreed", sender: self)
     }
     

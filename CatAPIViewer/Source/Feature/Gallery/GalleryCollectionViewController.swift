@@ -40,12 +40,10 @@ class GalleryCollectionViewController: UIViewController, UICollectionViewDataSou
     func getImagesForGallery() {
         
         let jsonURL = apiConfig.fetchURL(with: .images, parameters:
-            [apiConfig.x_api_key : apiConfig.apiKey,
+            ["x_api_key" : apiConfig.apiKey,
              "limit" : apiConfig.limit,
              "page"  : String(page)])
         
-        print(jsonURL)
-         
          jsonParser.downloadData(of: ImageCAT.self, from: jsonURL!) { (result) in
                 switch result {
                 case .failure(let error):

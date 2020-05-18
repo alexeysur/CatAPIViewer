@@ -13,7 +13,7 @@ import QuartzCore
 class CustomLoader: UIView
 {
     //MARK:- NOT ACCESSABLE OUT SIDE
-
+/*
     fileprivate var duration : CFTimeInterval! = 1
     fileprivate var isAnimating :Bool = false
     fileprivate var backgroundView : UIView!
@@ -224,4 +224,6 @@ class CustomLoader: UIView
     override func draw(_ rect: CGRect)
     {
     }
+*/
+    
 }

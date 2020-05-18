@@ -11,4 +11,7 @@ import UIKit
 struct Color {
     static let background = UIColor(hex: "#ffffff")
     static let main = UIColor(hex: "#9E6BE0")
+    static let salad = UIColor(hex:"#38E717")
+    static let lightRed = UIColor(hex:"#E43830")
+    static let borderColorButton = UIColor(hex: "E33830")
 }
