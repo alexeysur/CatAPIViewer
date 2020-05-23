@@ -4,24 +4,22 @@
 Input data:
 Here is a database of cats — [docs.thecatapi.com](https://docs.thecatapi.com) for you to get any data on the breeds, photos of specific cats and much more.
 
-What I have done:  iOS app using Swift, with a list of cat breeds and a separate screen for a detailed description of the breed;
+What I have done:  
+iOS app using Swift, with a list of cat breeds and a separate screen for a detailed description of the breed;
 Also I made the quiz, something like “Guess the breed by the photo”;
 And I made gallery with a list of photos and a separate screen to see them full-size.
 
 Limitations:
-
 1. The application must have at least two different screens.
 2. The application should not use third-party dependencies.
 
 ## Getting Started
-
 Clone or download the repo onto your machine and open it in Xcode.
 To start collecting data about cats, you need to get an API key for requests. 
 You can get it by registering at [thecatapi.com](https://thecatapi.com/signup). The key will be sent to your email.
 The link to manual API [https://docs.thecatapi.com](https://docs.thecatapi.com/)
 
-### Prerequisites
-
+## Prerequisites
 * Xcode 10.2+
 * Swift 4.1+
 
