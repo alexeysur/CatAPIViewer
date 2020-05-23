@@ -1,7 +1,7 @@
 # CatAPIViewer_v2
 **It's mini-project as test task for Intership program Summer-2020 in MacPow company (Kyiv, Ukraine).**
 
-Input data:
+Input data:<br>
 Here is a database of cats — [docs.thecatapi.com](https://docs.thecatapi.com) for you to get any data on the breeds, photos of specific cats and much more.
 
 What I have done:  
