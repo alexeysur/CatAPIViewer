@@ -11,6 +11,8 @@ import UIKit
 
 class BreedsTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate  {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     var breeds = [Breed]()
     var valueToPass = Breed()
     private let heightRow = 44
@@ -23,7 +25,8 @@ class BreedsTableViewController: UIViewController, UITableViewDataSource, UITabl
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
+        self.activityIndicator.isHidden = false
+        self.activityIndicator.startAnimating()
         getBreeds()
         tableView.reloadData()
     }
@@ -42,6 +45,8 @@ class BreedsTableViewController: UIViewController, UITableViewDataSource, UITabl
                case .success(let breeds):
                 DispatchQueue.main.sync {
                     BreedService.breeds = breeds
+                    self.activityIndicator.isHidden = true
+                    self.activityIndicator.stopAnimating()
                     self.tableView.reloadData()
                      
                 }

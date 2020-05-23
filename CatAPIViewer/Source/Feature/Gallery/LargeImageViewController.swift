@@ -36,8 +36,6 @@ class LargeImageViewController: UIViewController, UICollectionViewDelegate, UICo
    
         myCollectionView.contentInsetAdjustmentBehavior = .automatic
         
-        
-     //   myCollectionView.autoresizingMask = UIView.AutoresizingMask(rawValue: UIView.AutoresizingMask.RawValue(UInt8(UIView.AutoresizingMask.flexibleWidth.rawValue) | UInt8(UIView.AutoresizingMask.flexibleHeight.rawValue)))
         myCollectionView.autoresizingMask = UIView.AutoresizingMask(rawValue: UIView.AutoresizingMask.RawValue(UInt8(UIView.AutoresizingMask.flexibleWidth.rawValue) | UInt8(UIView.AutoresizingMask.flexibleHeight.rawValue)))
        
     }
@@ -60,24 +58,16 @@ class LargeImageViewController: UIViewController, UICollectionViewDelegate, UICo
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ImagePreviewCollectionViewCell
     
         let url = imagesCats[indexPath.row].url
-        print("url = \(url)")
             
           jsonParser.fetchImage(from: url) { (imageData, error) in
                         if let data = imageData {
-                         
-              //            cell.activityIndecator.startAnimating()
+        
                             DispatchQueue.main.async {
                                 cell.imgView.image = data
                                 cell.imgView.contentMode = .scaleAspectFit
-                          //      collectionView.reloadData()
-                               //self.cell.activityIndecator.stopAnimating()
-                        //        self.cell.activityIndecator.isHidden = true
                             }
                         } else {
                                 cell.imgView.image = UIImage(named: "catPlaceHolder")
-                           //     self.activityIndecator.stopAnimating()
-                         //       self.activityIndecator.isHidden = true
-                            
                         }
                     }
             
@@ -104,7 +94,6 @@ class LargeImageViewController: UIViewController, UICollectionViewDelegate, UICo
         myCollectionView.setContentOffset(newOffset, animated: false)
 
         coordinator.animate(alongsideTransition: { (context) in
-    //        self.myCollectionView.reloadData()
             self.myCollectionView.setContentOffset(newOffset, animated: false)
             
         },

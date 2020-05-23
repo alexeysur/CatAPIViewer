@@ -128,8 +128,6 @@ class QUIZViewController: UIViewController {
         currentBreed.breedID = id
         currentBreed.breedShotName = breeds[id].id
         currentBreed.breedName = breeds[id].name
-        
-        print("currentBreed = \(currentBreed)")
     }
     
     func randomBreedFromList() -> String {
@@ -148,7 +146,7 @@ class QUIZViewController: UIViewController {
         var currAnswer = Answer()
         
         indexRight = randomArrayID()
-        print("indexRight = \(indexRight)")
+  
         currAnswer.response = isRightBreed
         currAnswer.isRight = true
         currentAnswers.insert(currAnswer, at: indexRight)
@@ -268,10 +266,7 @@ class QUIZViewController: UIViewController {
         toolButtonNext.isEnabled = false
    
         setup()
-        randomBreed()
-        getImagefromURL(from: currentBreed.breedShotName)
-        showPossibleAnswer(isRightBreed: (currentBreed.breedName))
-                                               
+
          anwButton1.isEnabled = true
          anwButton2.isEnabled = true
          anwButton3.isEnabled = true

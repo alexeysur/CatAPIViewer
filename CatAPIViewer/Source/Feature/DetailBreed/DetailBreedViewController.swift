@@ -42,9 +42,9 @@ class DetailBreedViewController: UIViewController {
     
     func setup() {
   
-        activityIndecator.centerXAnchor.constraint(equalTo: imageBreed.centerXAnchor).isActive = true
-        activityIndecator.centerYAnchor.constraint(equalTo: imageBreed.centerYAnchor).isActive = true
-        
+//        activityIndecator.centerXAnchor.constraint(equalTo: imageBreed.centerXAnchor).isActive = true
+//        activityIndecator.centerYAnchor.constraint(equalTo: imageBreed.centerYAnchor).isActive = true
+//
         activityIndecator.isHidden = false
         activityIndecator.startAnimating()
 
@@ -63,9 +63,11 @@ class DetailBreedViewController: UIViewController {
                     }
                 case .success(let breedDetail):
                  DispatchQueue.main.sync {
+                    self.activityIndecator.isHidden = false
+                    self.activityIndecator.startAnimating()
+                    
                        self.breedDetail = breedDetail[0]
                        self.setImageToImageView(from: (self.breedDetail?.url)!)
-                    
                  }
                     
                 }
@@ -80,7 +82,7 @@ class DetailBreedViewController: UIViewController {
             if let data = imageData {
                 DispatchQueue.main.async {
                     self.imageBreed.image = data
-                    
+                    self.imageBreed.contentMode = .scaleAspectFit
                     self.activityIndecator.stopAnimating()
                     self.activityIndecator.isHidden = true
                 }

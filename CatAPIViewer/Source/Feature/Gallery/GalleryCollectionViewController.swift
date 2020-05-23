@@ -56,7 +56,6 @@ class GalleryCollectionViewController: UIViewController, UICollectionViewDataSou
                  DispatchQueue.main.sync {
                     self.imagesCats = self.imagesCats + imagesCats
                     self.collectionView.reloadData()
-               //        print("Get Breeds = \(self.breeds)")
                       
                  }
                     
@@ -77,7 +76,6 @@ class GalleryCollectionViewController: UIViewController, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("Count imagesCats = \(imagesCats.count)")
         return imagesCats.count
     }
     
@@ -92,7 +90,6 @@ class GalleryCollectionViewController: UIViewController, UICollectionViewDataSou
         jsonParser.fetchImage(from: url) { (imageData, error) in
                       if let data = imageData {
                        
-            //            cell.activityIndecator.startAnimating()
                           DispatchQueue.main.async {
                             cell.imageView.image = data
                             cell.imageView.contentMode = .scaleAspectFill

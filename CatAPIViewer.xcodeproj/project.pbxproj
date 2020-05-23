@@ -16,7 +16,6 @@
 		8A12C0D5246EC35800316518 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A12C0D4246EC35800316518 /* Color.swift */; };
 		8A12C0D8246ED95C00316518 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A12C0D7246ED95C00316518 /* JSONParser.swift */; };
 		8A12D6D924730A9D0006543E /* Service+Breeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A12D6D824730A9D0006543E /* Service+Breeds.swift */; };
-		8A1414A72461FC8F00DC2509 /* CustomLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1414A62461FC8F00DC2509 /* CustomLoader.swift */; };
 		8A151A452465D7B4000FBA74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A151A442465D7B4000FBA74 /* Assets.xcassets */; };
 		8A1BCBFD245F67C300AB1E0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1BCBFC245F67C300AB1E0B /* AppDelegate.swift */; };
 		8A1BCBFF245F67C300AB1E0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A1BCBFE245F67C300AB1E0B /* SceneDelegate.swift */; };
@@ -45,7 +44,6 @@
 		8A12C0D4246EC35800316518 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		8A12C0D7246ED95C00316518 /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		8A12D6D824730A9D0006543E /* Service+Breeds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Service+Breeds.swift"; sourceTree = "<group>"; };
-		8A1414A62461FC8F00DC2509 /* CustomLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoader.swift; sourceTree = "<group>"; };
 		8A151A442465D7B4000FBA74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A1BCBF9245F67C300AB1E0B /* CatAPIViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatAPIViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A1BCBFC245F67C300AB1E0B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -227,7 +225,6 @@
 			isa = PBXGroup;
 			children = (
 				8A3CB4CE246DED5200D01B2C /* UIImage_Cache.swift */,
-				8A1414A62461FC8F00DC2509 /* CustomLoader.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -325,7 +322,6 @@
 				8A7E5C902468515E00CAF9E0 /* ImageCatCollectionViewCell.swift in Sources */,
 				8A12C0D1246EBA2E00316518 /* AppConfing.swift in Sources */,
 				8A1BCC18245F69A200AB1E0B /* TabBarViewController.swift in Sources */,
-				8A1414A72461FC8F00DC2509 /* CustomLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
