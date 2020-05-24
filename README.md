@@ -30,15 +30,15 @@ The link to manual API [https://docs.thecatapi.com](https://docs.thecatapi.com/)
 ## ScreenShots App:
 <table>
  <tr>
-   <td><a href="CatAPIViewer/ScreenShots/screen1.png"> </a> </td>
-   <td><a href="CatAPIViewer/ScreenShots/screen2.png"> </a></td>
+   <td><a href="https://github.com/alexeysur/CatAPIViewer_v2/blob/develop/CatAPIViewer/ScreenShots/screen1.png"> </a> </td>
+   <td><a href="https://github.com/alexeysur/CatAPIViewer_v2/blob/develop/CatAPIViewer/ScreenShots/screen2.png"> </a></td>
 </tr>
 <tr>
-    <td><a href="CatAPIViewer/ScreenShots/screen3.png"> </a></td>
-    <td><a href="CatAPIViewer/ScreenShots/screen4.png"> </a> </td>
+    <td><a href="https://github.com/alexeysur/CatAPIViewer_v2/blob/develop/CatAPIViewer/ScreenShots/screen3.png"> </a></td>
+    <td><a href="https://github.com/alexeysur/CatAPIViewer_v2/blob/develop/CatAPIViewer/ScreenShots/screen4.png"> </a> </td>
 </tr>
 <tr>
-<td><a href="CatAPIViewer/ScreenShots/video.gif"> </a> </td>
+<td><a href="https://github.com/alexeysur/CatAPIViewer_v2/blob/develop/CatAPIViewer/ScreenShots/video.gif"> </a> </td>
 </tr>
 </table>
 
