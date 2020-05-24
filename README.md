@@ -2,15 +2,16 @@
 **It's mini-project as test task for Intership program Summer-2020 in MacPow company (Kyiv, Ukraine).**
 
 Input data:<br>
-Here is a database of cats — [docs.thecatapi.com](https://docs.thecatapi.com) for you to get any data on the breeds, photos of specific cats and much more.<br>
+Here is a database of cats — [docs.thecatapi.com](https://docs.thecatapi.com) where you can get any data on the breeds, photos of specific information about cats and much more.<br>
 <p>
-What I have done:  iOS app using Swift, with a list of cat breeds and a separate screen for a detailed description of the breed.<br>
-Also I made the quiz, something like “Guess the breed by the photo”<br>
-And I made gallery with a list of photos and a separate screen to see them full-size.<br>
+What I have done: <br>  
+* iOS app using Swift, with a list of cat breeds and a separate screen for a detailed description of the breed.<br>
+* Also I made the quiz, something like “Guess the breed by the photo”<br>
+* And I made gallery with a list of photos and a separate screen to see them full-size.<br>
 </p>
-Limitations:
-1. The application must have at least two different screens.
-2. The application should not use third-party dependencies.
+Limitations: <br>
+1. The application must have at least two different screens. <br>
+2. The application should not use third-party dependencies. <br>
 
 ## Getting Started
 
@@ -25,14 +26,22 @@ The link to manual API [https://docs.thecatapi.com](https://docs.thecatapi.com/)
 * Swift 5.1+
 
 ## ScreenShots App:
-![List of Breeds] (ScreenShots/screen1.png)
-![Detail description breeds of cats](ScreenShots/screen2.png)
-![QUIZ](ScreenShots/screen3.png)
-![Gallery](ScreenShots/screen4.png)
-![Video](ScreenShots/video.mov)
+<table>
+ <tr>
+   <td>![] (ScreenShots/screen1.png) </td>
+   <td>![](ScreenShots/screen2.png) </td>
+</tr>
+<tr>
+    <td>![](CatAPIViewer/ScreenShots/screen3.png) </tr>
+    <td>![](ScreenShots/screen4.png) <>
+</tr>
+<tr>
+<td>![](ScreenShots/video.gif) </td>
+</tr>
+</table>
 
 ## TODO:
-1. Add custom ActivityIndecator with picture - Spinning Cat!
+1. Add custom ActivityIndecator with picture - Spinning Cat.
 2. Add the ability to mark your favorite photos and store links to them in DefaultUsers.
 3. Make more readable and clean code in ViewControllers.
 4. Add the ability save score in QUIZ and create result table
