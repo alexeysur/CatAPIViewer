@@ -1,6 +1,8 @@
 # CatAPIViewer_v2
 **It's mini-project as test task for Intership program Summer-2020 in MacPow company (Kyiv, Ukraine).**
 
+It's second release, because the first was very terrible.<br>
+
 Input data:<br>
 Here is a database of cats — [docs.thecatapi.com](https://docs.thecatapi.com) where you can get any data on the breeds, photos of specific information about cats and much more.<br>
 <p>
@@ -28,15 +30,15 @@ The link to manual API [https://docs.thecatapi.com](https://docs.thecatapi.com/)
 ## ScreenShots App:
 <table>
  <tr>
-   <td>[] (CatAPIViewer/ScreenShots/screen1.png) </td>
-   <td>[](CatAPIViewer/ScreenShots/screen2.png) </td>
+   <td><a href="CatAPIViewer/ScreenShots/screen1.png"> </a> </td>
+   <td><a href="CatAPIViewer/ScreenShots/screen2.png"> </a></td>
 </tr>
 <tr>
-    <td>[](CatAPIViewer/ScreenShots/screen3.png) </tr>
-    <td>[](ScreenShots/screen4.png) <>
+    <td><a href="CatAPIViewer/ScreenShots/screen3.png"> </a></td>
+    <td><a href="CatAPIViewer/ScreenShots/screen4.png"> </a> </td>
 </tr>
 <tr>
-<td>[](CatAPIViewer/ScreenShots/video.gif) </td>
+<td><a href="CatAPIViewer/ScreenShots/video.gif"> </a> </td>
 </tr>
 </table>
 
