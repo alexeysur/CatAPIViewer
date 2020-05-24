@@ -18,11 +18,12 @@ class LargeImageViewController: UIViewController, UICollectionViewDelegate, UICo
     
     var myCollectionView: UICollectionView!
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let layout = UICollectionViewFlowLayout()
+      
+        
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
@@ -33,8 +34,8 @@ class LargeImageViewController: UIViewController, UICollectionViewDelegate, UICo
         myCollectionView.dataSource = self
         myCollectionView.register(ImagePreviewCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         myCollectionView.isPagingEnabled = true
-   
-        myCollectionView.contentInsetAdjustmentBehavior = .automatic
+        
+        myCollectionView.contentInsetAdjustmentBehavior = .never
         
         myCollectionView.autoresizingMask = UIView.AutoresizingMask(rawValue: UIView.AutoresizingMask.RawValue(UInt8(UIView.AutoresizingMask.flexibleWidth.rawValue) | UInt8(UIView.AutoresizingMask.flexibleHeight.rawValue)))
        
@@ -71,13 +72,15 @@ class LargeImageViewController: UIViewController, UICollectionViewDelegate, UICo
                         }
                     }
             
-              return cell }
+              return cell
+        
+    }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         guard let flowLayout = myCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return}
-        flowLayout.itemSize = myCollectionView.bounds.size
-
+        flowLayout.itemSize = myCollectionView.frame.size
+      
         flowLayout.invalidateLayout()
 
         myCollectionView.collectionViewLayout.invalidateLayout()
@@ -95,9 +98,27 @@ class LargeImageViewController: UIViewController, UICollectionViewDelegate, UICo
 
         coordinator.animate(alongsideTransition: { (context) in
             self.myCollectionView.setContentOffset(newOffset, animated: false)
-            
+
         },
             completion: nil)
+        
+    }
+       
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        
+        if UIDevice.current.orientation.isLandscape,
+                   let layout = myCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+                   let width = view.frame.width - 88
+                   let height = view.frame.height
+                   layout.itemSize = CGSize(width: width, height: height)
+                   layout.invalidateLayout()
+        } else if UIDevice.current.orientation.isPortrait,
+                   let layout = myCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+                   let width = view.frame.width
+                   let height = view.frame.height - 88
+                   layout.itemSize = CGSize(width: width , height: height)
+                   layout.invalidateLayout()
+        }
         
       }
 }

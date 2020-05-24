@@ -117,7 +117,11 @@ class GalleryCollectionViewController: UIViewController, UICollectionViewDataSou
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 5
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
     }
     
     override func viewWillLayoutSubviews() {
@@ -133,22 +137,6 @@ class GalleryCollectionViewController: UIViewController, UICollectionViewDataSou
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-          super.viewWillTransition(to: size, with: coordinator)
-//          let offset = myCollectionView.contentOffset
-//          let width = myCollectionView.bounds.size.width
-//          
-//          let index = round(offset.x / width)
-//          let newOffset = CGPoint(x: index * size.width, y: offset.y)
-//          
-//          myCollectionView.setContentOffset(newOffset, animated: false)
-//          
-//          coordinator.animate(alongsideTransition: { (context) in self.myCollectionView.reloadData()
-//              self.myCollectionView.setContentOffset(newOffset, animated: false) },
-//              completion: nil)
-          
-        }
-
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.item == (imagesCats.count-1) {
                page += 1
