@@ -1,5 +1,5 @@
 # CatAPIViewer_v2
-**It's mini-project as test task for Intership program Summer-2020 in MacPow company (Kyiv, Ukraine).**
+**It's mini-project as test task for Intership program Summer-2020 in MacPaw company (Kyiv, Ukraine).**
 
 It's second release, because the first was very terrible.<br>
 
