@@ -15,7 +15,7 @@ enum paragraph: String {
 }
 
 final class APIConfig {
-    let apiKey = "1333c8f6-fa50-4689-94ff-42b566bc2aed"
+    let apiKey = "API KEY"
     let limit = "100"
     let page = 1
     let breed_ids = "breed_ids"
