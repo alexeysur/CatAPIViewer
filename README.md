@@ -10,8 +10,8 @@ What I have done: <br>
 * And I made gallery with a list of photos and a separate screen to see them full-size.<br>
 </p>
 Limitations: <br>
-1. The application must have at least two different screens. <br>
-2. The application should not use third-party dependencies. <br>
+1. The application have only four different screens. <br>
+2. The application don't use third-party dependencies. <br>
 
 ## Getting Started
 
@@ -28,15 +28,15 @@ The link to manual API [https://docs.thecatapi.com](https://docs.thecatapi.com/)
 ## ScreenShots App:
 <table>
  <tr>
-   <td>![] (ScreenShots/screen1.png) </td>
-   <td>![](ScreenShots/screen2.png) </td>
+   <td>[] (CatAPIViewer/ScreenShots/screen1.png) </td>
+   <td>[](CatAPIViewer/ScreenShots/screen2.png) </td>
 </tr>
 <tr>
-    <td>![](CatAPIViewer/ScreenShots/screen3.png) </tr>
-    <td>![](ScreenShots/screen4.png) <>
+    <td>[](CatAPIViewer/ScreenShots/screen3.png) </tr>
+    <td>[](ScreenShots/screen4.png) <>
 </tr>
 <tr>
-<td>![](ScreenShots/video.gif) </td>
+<td>[](CatAPIViewer/ScreenShots/video.gif) </td>
 </tr>
 </table>
 
