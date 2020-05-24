@@ -28,19 +28,17 @@ The link to manual API [https://docs.thecatapi.com](https://docs.thecatapi.com/)
 * Swift 5.1+
 
 ## ScreenShots App:
-![Video]("https://github.com/alexeysur/CatAPIViewer_v2/blob/develop/CatAPIViewer/ScreenShots/video.gif")
-
 <table>
  <tr>
-   <td><a href="https://github.com/alexeysur/CatAPIViewer_v2/blob/develop/CatAPIViewer/ScreenShots/screen1.png"> </a> </td>
-   <td><a href="https://github.com/alexeysur/CatAPIViewer_v2/blob/develop/CatAPIViewer/ScreenShots/screen2.png"> </a></td>
+   <td><img src="https://github.com/alexeysur/CatAPIViewer_v2/blob/develop/CatAPIViewer/ScreenShots/screen1.png"> </td>
+   <td><img src="https://github.com/alexeysur/CatAPIViewer_v2/blob/develop/CatAPIViewer/ScreenShots/screen2.png"> </td>
 </tr>
 <tr>
-    <td><a href="https://github.com/alexeysur/CatAPIViewer_v2/blob/develop/CatAPIViewer/ScreenShots/screen3.png"> </a></td>
-    <td><a href="https://github.com/alexeysur/CatAPIViewer_v2/blob/develop/CatAPIViewer/ScreenShots/screen4.png"> </a> </td>
+    <td><img src="https://github.com/alexeysur/CatAPIViewer_v2/blob/develop/CatAPIViewer/ScreenShots/screen3.png"> </td>
+    <td><img src="https://github.com/alexeysur/CatAPIViewer_v2/blob/develop/CatAPIViewer/ScreenShots/screen4.png"> </td>
 </tr>
-<tr>
-<td><a href="https://github.com/alexeysur/CatAPIViewer_v2/blob/develop/CatAPIViewer/ScreenShots/video.gif"> </a> </td>
+<tr align="center">
+<td><img src="https://github.com/alexeysur/CatAPIViewer_v2/blob/develop/CatAPIViewer/ScreenShots/video.gif"> </td>
 </tr>
 </table>
 
