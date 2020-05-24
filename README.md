@@ -28,6 +28,8 @@ The link to manual API [https://docs.thecatapi.com](https://docs.thecatapi.com/)
 * Swift 5.1+
 
 ## ScreenShots App:
+![Video]("https://github.com/alexeysur/CatAPIViewer_v2/blob/develop/CatAPIViewer/ScreenShots/video.gif")
+
 <table>
  <tr>
    <td><a href="https://github.com/alexeysur/CatAPIViewer_v2/blob/develop/CatAPIViewer/ScreenShots/screen1.png"> </a> </td>
